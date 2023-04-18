@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vueversion3.js"></script>
+</head>
+<body>
+    <div id="mainapp">
+        <!-- <p id="targetp">{{message}}</p> -->
+        <!-- v-bind : v-bind:attribute="propertyname" => shorthand :attributesname="properyname"-->
+        <!-- <h2 v-bind:title="track">{{Intake}}</h2> -->
+        <!-- <h2 :title="track">{{Intake}}</h2> -->
+
+        <!--V-show , v-if-->
+        <!-- <h3 v-show="isvisible==true">{{track}}</h3> -->
+        <!-- <h3 v-if="isvisible==true">track name : {{track}}</h3> -->
+        <!-- <h3 v-text="samplecode"></h3> -->
+        <!-- <p v-if="degree>90">Degree > 90</p>
+        <p v-else-if="degree<90">Degree < 90</p>
+        <p v-else>Degree ==  90</p> -->
+            
+        <!-- loop directive : v-for-->
+        <!-- <ul>
+            <li v-for="student in students" :title="student.city" :key="student.id">{{student.name}}</li>
+        </ul> -->
+        <!-- <button v-on:click="showmessage()">Show Message</button> -->
+        <!-- <button @click="showmessage()">Show Message</button> -->
+
+        <!-- <h3>{{showmessage()}}</h3> -->
+
+
+        <!-- v-model (two way binding) | v-bind (one way biding)-->
+        <!-- <h3>Message : {{message}}</h3>
+        <input type="text" v-model="message"/> -->
+
+
+        <!-- <h3 v-once>Message : {{message}}</h3> -->
+        <!-- <input type="text" v-model="message"/>
+        <p>Message as p  : {{message}}</p> -->
+            <!-- <button @click.ctrl="showmessage">end exam</button> -->
+            <!-- -->
+            <!-- <button @click.once="showmessage">Start Exam</button> -->
+            <!-- <a href="#" @click.prevent="showmessage">Click Me</a> -->
+            <!-- <input type="number" min="10" max="50" v-model.number="counter"/>
+            <h3>Counter : {{counter+10}}</h3> -->
+            
+    </div>    
+
+    <!--Create vue Instance-->
+    <script>    
+        // 1- create vue instance using method createApp
+        const app= Vue.createApp({
+            /*
+                // data : properties : is function return object (contain reactive roperties)
+                // data:function(){
+                //     return {
+                //         message:'hello world',
+                //         Intake:43
+                //     }
+                // }
+
+                // data:()=>{
+                //     return {
+                //         message:'hello world',
+                //         Intake:43
+                //     }
+                // }
+
+                    */
+                data:()=>({
+                        message:'hello world',
+                        Intake:43,
+                        track:'open source',
+                        branch:'mansoura',
+                        samplecode:'<b><i>Open Source Mansoura</i></b>',
+                        isvisible:false,
+                        degree:90,
+                        counter:20,
+                        students:[
+                            {id:100,name:"ahmed",city:'mansoura'},
+                            {id:200,name:"mohamed",city:'cairo'},
+                            {id:300,name:"ibraheem",city:'tanta'},
+                            {id:400,name:"kareem",city:'alex'}
+                        ]
+                    })
+                ,
+                methods:{
+                    showmessage(){
+                        alert( this.message.toUpperCase());
+                    }
+                }
+
+                // method :
+                //computed:
+                //....
+
+            });//.mount('#mainapp')
+        //2- mount
+        app.mount('#mainapp');
+    </script>
+</body>
+</html>
